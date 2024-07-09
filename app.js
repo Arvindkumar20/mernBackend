@@ -5,6 +5,7 @@ import 'dotenv/config';
 import { router } from "./routes/routes.tasks.js";
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 // create connection with mongo
 connectDb(process.env.DB_URI).then(() => {
@@ -19,6 +20,6 @@ app.use(cors());
 // routes
 app.use("/api/tasks", router);
 
-app.listen(process.env.PORT, () => {
-    console.log("server running at port " + process.env.PORT);
+app.listen(port, () => {
+    console.log("server running at port " +port);
 });
