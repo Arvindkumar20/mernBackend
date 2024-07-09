@@ -7,8 +7,8 @@ const handleCreateTasks=async(req,res)=>{
 }
 const handleGetTasks=async(req,res)=>{
     try {
-        const tasks = await Task.find();
-        const formattedTasks = tasks.map(task => ({
+        const tasks = await  Task.find();
+        const formattedTasks =await tasks.map(task => ({
             ...task._doc,
             createdAt: task.createdAt.toLocaleString(),
             updatedAt: task.updatedAt.toLocaleString(),
